@@ -28,7 +28,7 @@
 const mongoose = require('mongoose');
 
 // Pega aquí la MISMA cadena de conexión que usas en index.js
-const connectionString = "mongodb+srv://yeisonlara01_db_user:AvMEWsPjR9U6Qk9r@cluster0.ofqarxb.mongodb.net/?appName=Cluster0/KEFIRIN";
+const connectionString = process.env.MONGO_URL;
 
 const UsuarioModel = require('./models/usuarios');
 const LocalModel = require('./models/locales');
@@ -40,6 +40,7 @@ const MantenimientoModel = require('./models/mantenimientos');
 
 
 const args = process.argv.slice(2);
+
 const BUSCAR = args.find(a => !a.startsWith('--'));
 const LIMPIAR = args.includes('--limpiar');
 
